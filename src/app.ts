@@ -10,6 +10,10 @@ import { v4 as uuidv4 } from 'uuid';
 import session from 'express-session';
 import passport from 'passport';
 
+export const port = '5441';
+export const url = process.env.NODE_ENV == 'development' ? `http://localhost:${port}` : 'NYI';
+
+import GoogleRouter from './routes/third-party/google.js';
 import BasicRouter from './routes/basic.js';
 import IndexRouter from './routes/index.js';
 
@@ -42,5 +46,6 @@ passport.deserializeUser(function (user: any, done) {
 
 app.use('/', IndexRouter);
 app.use('/basic', BasicRouter);
+app.use('/google', GoogleRouter);
 
 export default app;
