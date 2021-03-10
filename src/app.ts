@@ -9,6 +9,8 @@ require('dotenv/config');
 import { v4 as uuidv4 } from 'uuid';
 import session from 'express-session';
 import passport from 'passport';
+import './utils/date.js';
+import * as db from './db';
 
 export const port = '5441';
 export const url = process.env.NODE_ENV == 'development' ? `http://localhost:${port}` : 'NYI';
@@ -43,6 +45,8 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user: any, done) {
     done(null, user);
 });
+
+db.connect();
 
 app.use('/', IndexRouter);
 app.use('/basic', BasicRouter);
