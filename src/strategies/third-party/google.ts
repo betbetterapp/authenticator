@@ -6,7 +6,7 @@ export default new GoogleStrategy(
     {
         clientID: process.env.GOOGLE_CLIENT_ID!!,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET!!,
-        callbackURL: `${url}/google/auth/callback`,
+        callbackURL: `${url}/auth/google/callback`,
     },
     function (accessToken, refreshToken, profile, done) {
         console.log('--- Google login or signup ---');

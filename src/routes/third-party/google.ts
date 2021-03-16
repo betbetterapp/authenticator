@@ -6,11 +6,11 @@ import GoogleStrategy from '../../strategies/third-party/google.js';
 
 passport.use('google', GoogleStrategy);
 
-router.get('/auth/callback', passport.authenticate('google'), (req, res) => {
+router.get('/callback', passport.authenticate('google'), (req, res) => {
     res.send({ user: req?.user });
 });
 router.get(
-    '/auth',
+    '/',
     passport.authenticate('google', {
         scope: [
             'https://www.googleapis.com/auth/plus.login',
