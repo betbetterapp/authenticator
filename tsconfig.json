@@ -11,7 +11,7 @@
         "sourceMap": false,
         "declaration": false,
         "listEmittedFiles": true,
-        "incremental": false,
+        "incremental": true,
         "allowSyntheticDefaultImports": true,
         "outDir": "build/",
         "allowJs": true,
