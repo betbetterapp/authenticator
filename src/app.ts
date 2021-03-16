@@ -15,9 +15,8 @@ import * as db from './db';
 export const port = '5441';
 export const url = process.env.NODE_ENV == 'development' ? `http://localhost:${port}` : 'NYI';
 
-import GoogleRouter from './routes/third-party/google.js';
-import BasicRouter from './routes/basic.js';
 import IndexRouter from './routes/index.js';
+import AuthRouter from './routes/auth.js';
 
 const app = express();
 
@@ -49,7 +48,6 @@ passport.deserializeUser(function (user: any, done) {
 db.connect();
 
 app.use('/', IndexRouter);
-app.use('/basic', BasicRouter);
-app.use('/google', GoogleRouter);
+app.use("/auth", AuthRouter)
 
 export default app;
